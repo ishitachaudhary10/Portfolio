@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ishita Chaudhary — Social Media Manager & Visual Designer</title>
+  <meta name="description" content="Portfolio of Ishita Chaudhary — Social Media Manager, Brand Designer & UI/UX Designer based in India. Crafting scroll-stopping visuals and brand identities.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <style>
+    /* ════════════════════════════════════════════════════════════════
+       DESIGN SYSTEM — Ishita Chaudhary Portfolio
+       ════════════════════════════════════════════════════════════════ */
+    :root {
+      --bg: #FAFAFA;
+      --bg-white: #FFFFFF;
+      --text: #0A0A0A;
+      --text-secondary: #555555;
+      --text-muted: #888888;
+
+      /* Accent Palette */
+      --blue: #2D6CFF;
+      --pink: #FF2D7A;
+      --yellow: #FFD600;
+      --green: #39FF14;
+      --orange: #FF5C00;
+      --violet: #7B2FFF;
+      --cyan: #00D4FF;
+
+      /* Typography */
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Motion & Shadows */
+      --ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+      --shadow-xl: 0 32px 80px rgba(0,0,0,0.16);
+      --radius: 20px;
+      --radius-sm: 12px;
+      --radius-xs: 8px;
+    }
+
+    /* ─── RESET ─── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    /* ─── UTILITY ─── */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 60px; }
+    .section-pad { padding: 140px 0; }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: currentColor;
+      display: inline-block;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       NAVIGATION
+       ════════════════════════════════════════════════════════════════ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 60px;
+      background: rgba(250,250,250,0.85);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      transition: all 0.4s var(--ease);
+    }
+    .navbar.scrolled {
+      padding: 14px 60px;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+    }
+    .nav-brand {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 8px;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 15px;
+      padding: 8px 18px;
+      border-radius: 100px;
+      transition: all 0.3s var(--ease);
+      color: var(--text-secondary);
+      position: relative;
+    }
+    .nav-links a:hover { color: var(--text); background: rgba(0,0,0,0.04); }
+    .nav-links li.active a {
+      color: var(--text);
+      background: var(--text);
+      color: #fff;
+    }
+
+    /* Mobile Menu Toggle */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      transition: all 0.3s var(--ease);
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       HERO
+       ════════════════════════════════════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      padding-bottom: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      color: var(--pink);
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 6.5vw, 88px);
+      font-weight: 700;
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      margin-bottom: 28px;
+    }
+    .hero h1 .gradient-text {
+      background: linear-gradient(135deg, var(--blue), var(--violet), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 19px;
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* Buttons */
+    .btn-pill {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 16px 32px;
+      border-radius: 100px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.4s var(--ease-out);
+    }
+    .btn-dark {
+      background: var(--text);
+      color: #fff;
+    }
+    .btn-dark:hover {
+      background: #222;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .btn-outline {
+      border: 1.5px solid #ddd;
+      color: var(--text);
+      background: #fff;
+    }
+    .btn-outline:hover {
+      border-color: var(--text);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Hero Mosaic Grid */
+    .hero-mosaic {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 0.8fr;
+      gap: 12px;
+      height: 560px;
+    }
+    .mosaic-cell {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      transition: all 0.5s var(--ease-out);
+    }
+    .mosaic-cell:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .mosaic-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease-out);
+    }
+    .mosaic-cell:hover img { transform: scale(1.05); }
+    .mosaic-cell-tall { grid-row: span 2; }
+    .mosaic-cell-wide { grid-column: span 2; }
+
+    /* Mosaic fallback */
+    .mosaic-fallback {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .mosaic-fallback span {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 400;
+      opacity: 0.7;
+    }
+
+    /* ─── MARQUEE ─── */
+    .marquee {
+      padding: 20px 0;
+      background: var(--text);
+      color: #fff;
+      overflow: hidden;
+      white-space: nowrap;
+      margin-top: 0;
+    }
+    .marquee-track {
+      display: inline-flex;
+      animation: scroll 35s linear infinite;
+    }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    .marquee-item {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .marquee-item::after {
+      content: '✦';
+      color: var(--yellow);
+      font-size: 12px;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       ABOUT
+       ════════════════════════════════════════════════════════════════ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-headline {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 28px;
+    }
+    .about-bio {
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .about-bio p + p { margin-top: 20px; }
+
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .stat-card {
+      padding: 40px 36px;
+      position: relative;
+      transition: all 0.4s var(--ease);
+    }
+    .stat-card:not(:last-child) { border-bottom: 1px solid rgba(255,255,255,0.15); }
+    .stat-card:nth-child(1) { background: linear-gradient(135deg, var(--pink), #ff6ba0); }
+    .stat-card:nth-child(2) { background: linear-gradient(135deg, var(--violet), #9b5fff); }
+    .stat-card:nth-child(3) { background: linear-gradient(135deg, var(--blue), #5a92ff); }
+    .stat-card:hover { transform: translateX(-4px); }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 52px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       SERVICES
+       ════════════════════════════════════════════════════════════════ */
+    .services-section {
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      color: #fff;
+    }
+    .services-title {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 5vw, 64px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 60px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 44px 32px;
+      transition: all 0.4s var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, transparent);
+      transition: all 0.4s var(--ease);
+    }
+    .service-card:nth-child(1):hover::before { background: linear-gradient(90deg, var(--pink), var(--orange)); }
+    .service-card:nth-child(2):hover::before { background: linear-gradient(90deg, var(--yellow), var(--green)); }
+    .service-card:nth-child(3):hover::before { background: linear-gradient(90deg, var(--cyan), var(--blue)); }
+    .service-card:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    .service-icon { font-size: 36px; margin-bottom: 20px; }
+    .service-name {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .service-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       PROJECTS
+       ════════════════════════════════════════════════════════════════ */
+    .projects-title {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 5vw, 64px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 80px;
+      position: relative;
+      display: inline-block;
+    }
+    .projects-title::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--violet));
+    }
+    .projects-list { display: flex; flex-direction: column; gap: 100px; }
+
+    /* Project Card */
+    .project-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .project-card:nth-child(even) { direction: rtl; }
+    .project-card:nth-child(even) > * { direction: ltr; }
+
+    .project-info { display: flex; flex-direction: column; align-items: flex-start; }
+    .project-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .project-name {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .project-desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+    .project-link {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 100px;
+      color: #fff;
+      transition: all 0.3s var(--ease);
+    }
+    .project-link:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      gap: 12px;
+    }
+
+    /* Image Gallery Container */
+    .project-gallery-wrapper {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      transition: all 0.5s var(--ease-out);
+    }
+    .project-gallery-wrapper:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    /* Scrollable horizontal gallery */
+    .project-gallery {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 24px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0,0,0,0.2) transparent;
+    }
+    .project-gallery::-webkit-scrollbar { height: 6px; }
+    .project-gallery::-webkit-scrollbar-track { background: transparent; }
+    .project-gallery::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.15);
+      border-radius: 3px;
+    }
+    .gallery-img {
+      flex: 0 0 auto;
+      height: 320px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      cursor: pointer;
+      scroll-snap-align: start;
+      transition: all 0.4s var(--ease);
+      box-shadow: var(--shadow-sm);
+    }
+    .gallery-img:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-md);
+    }
+    /* Auto-width images */
+    .gallery-img.landscape { width: auto; max-width: 500px; }
+    .gallery-img.portrait { width: auto; max-width: 260px; }
+
+    /* Gallery image count badge */
+    .gallery-count {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      background: rgba(0,0,0,0.6);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 100px;
+      z-index: 5;
+    }
+
+    /* Scroll hint arrow */
+    .scroll-hint {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .project-gallery-wrapper:hover .scroll-hint { opacity: 0; }
+
+    /* Fallback placeholder for missing images */
+    .project-fallback {
+      height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 40px;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      color: #fff;
+    }
+    .project-fallback .fallback-icon { font-size: 40px; }
+    .project-fallback .fallback-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .project-fallback .fallback-sub {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      opacity: 0.7;
+    }
+
+    /* Dual editions container for newsletter */
+    .dual-editions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 24px;
+    }
+    .edition-col { display: flex; flex-direction: column; gap: 12px; }
+    .edition-heading {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      background: var(--text);
+      color: #fff;
+      text-align: center;
+      align-self: center;
+    }
+    .edition-img {
+      border-radius: var(--radius-xs);
+      object-fit: cover;
+      width: 100%;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+      box-shadow: var(--shadow-sm);
+    }
+    .edition-img:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       PROCESS
+       ════════════════════════════════════════════════════════════════ */
+    .process-section {
+      background: linear-gradient(160deg, #FFF7CC, var(--yellow), #FFEB80);
+      color: var(--text);
+    }
+    .process-title {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 5vw, 64px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 60px;
+    }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .process-step {
+      padding: 0 32px;
+      position: relative;
+    }
+    .process-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background: rgba(0,0,0,0.15);
+    }
+    .process-step:first-child { padding-left: 0; }
+    .process-step:last-child { padding-right: 0; }
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 16px;
+      opacity: 0.25;
+    }
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .step-desc {
+      font-size: 15px;
+      line-height: 1.6;
+      opacity: 0.8;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       CONTACT
+       ════════════════════════════════════════════════════════════════ */
+    .contact-section {
+      background: var(--text);
+      color: #fff;
+    }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .contact-headline {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .contact-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 44px;
+      line-height: 1.6;
+    }
+    .contact-links { display: flex; flex-direction: column; gap: 16px; }
+    .contact-link-btn {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 20px 32px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.4s var(--ease-out);
+      color: #fff;
+      width: fit-content;
+    }
+    .contact-email {
+      background: linear-gradient(135deg, var(--pink), #ff6ba0);
+    }
+    .contact-linkedin {
+      background: linear-gradient(135deg, var(--blue), #5a92ff);
+    }
+    .contact-link-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+      gap: 18px;
+    }
+
+    /* Right side — decorative visual */
+    .contact-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    .contact-avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--violet), var(--pink), var(--orange), var(--yellow));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 60px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .contact-role {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-align: center;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.3);
+      padding: 32px 60px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       LIGHTBOX
+       ════════════════════════════════════════════════════════════════ */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+      padding: 40px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-xl);
+      cursor: default;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      font-size: 32px;
+      color: #fff;
+      cursor: pointer;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.1);
+      transition: all 0.3s;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 28px;
+      color: #fff;
+      cursor: pointer;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.1);
+      transition: all 0.3s;
+    }
+    .lightbox-nav:hover { background: rgba(255,255,255,0.2); }
+    .lightbox-prev { left: 24px; }
+    .lightbox-next { right: 24px; }
+    .lightbox-counter {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       RESPONSIVE
+       ════════════════════════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .container { padding: 0 32px; }
+      .navbar { padding: 20px 32px; }
+      .navbar.scrolled { padding: 12px 32px; }
+      .hero .container { grid-template-columns: 1fr; gap: 48px; }
+      .hero h1 { text-align: center; }
+      .hero-left { align-items: center; text-align: center; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-mosaic { height: 400px; max-width: 500px; margin: 0 auto; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .project-card { grid-template-columns: 1fr; gap: 32px; }
+      .project-card:nth-child(even) { direction: ltr; }
+      .process-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .process-step { padding: 0; }
+      .process-step:not(:last-child)::after { display: none; }
+      .process-step { border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 24px; }
+      .process-step:nth-last-child(-n+2) { border-bottom: none; }
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      .contact-visual { display: none; }
+    }
+
+    @media (max-width: 767px) {
+      .container { padding: 0 20px; }
+      .section-pad { padding: 80px 0; }
+      .navbar { padding: 16px 20px; }
+      .navbar.scrolled { padding: 12px 20px; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255,255,255,0.98);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        z-index: 1000;
+      }
+      .nav-links.open a { font-size: 24px; padding: 16px 32px; }
+      .nav-toggle { display: flex; }
+      .hero-mosaic {
+        height: 280px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 8px;
+        max-width: 100%;
+      }
+      .mosaic-cell-tall { grid-row: span 1; }
+      .mosaic-cell-wide { grid-column: span 1; }
+      .mosaic-cell:nth-child(n+4) { display: none; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .btn-pill { width: 100%; justify-content: center; }
+      .services-grid { gap: 16px; }
+      .process-grid { grid-template-columns: 1fr; gap: 24px; }
+      .process-step { border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 20px; }
+      .process-step:last-child { border-bottom: none; }
+      .gallery-img { height: 220px; }
+      .contact-link-btn { width: 100%; justify-content: center; }
+      .dual-editions { grid-template-columns: 1fr; }
+      .footer { padding: 24px 20px; }
+    }
+
+    /* ─── REDUCED MOTION ─── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .marquee-track { animation: none !important; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
+<nav class="navbar" id="navbar">
+  <a href="#hero" class="nav-brand">ISHITA CHAUDHARY</a>
+  <ul class="nav-links" id="navLinks">
+    <li class="active" data-section="work"><a href="#work">Work</a></li>
+    <li data-section="about"><a href="#about">About</a></li>
+    <li data-section="services"><a href="#services">Services</a></li>
+    <li data-section="process"><a href="#process">Process</a></li>
+    <li data-section="contact"><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-toggle" id="navToggle" onclick="document.getElementById('navLinks').classList.toggle('open'); this.classList.toggle('active');">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-left">
+      <div class="eyebrow hero-eyebrow">Available for freelance & full-time</div>
+      <h1>
+        Social Media<br>
+        Manager &<br>
+        <span class="gradient-text">Designer.</span>
+      </h1>
+      <p class="hero-sub">Crafting visual identities, social creatives & digital experiences that actually stop the scroll.</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn-pill btn-dark">VIEW MY WORK ↓</a>
+        <a href="#contact" class="btn-pill btn-outline">GET IN TOUCH</a>
+      </div>
+    </div>
+    <div class="hero-mosaic" id="heroMosaic">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ─── MARQUEE ─── -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-item">Brand Identity</span>
+    <span class="marquee-item">Social Media Design</span>
+    <span class="marquee-item">UI/UX</span>
+    <span class="marquee-item">Content Strategy</span>
+    <span class="marquee-item">Canva</span>
+    <span class="marquee-item">Figma</span>
+    <span class="marquee-item">Visual Storytelling</span>
+    <span class="marquee-item">Instagram Creatives</span>
+    <span class="marquee-item">Typography</span>
+    <span class="marquee-item">Brand Identity</span>
+    <span class="marquee-item">Social Media Design</span>
+    <span class="marquee-item">UI/UX</span>
+    <span class="marquee-item">Content Strategy</span>
+    <span class="marquee-item">Canva</span>
+    <span class="marquee-item">Figma</span>
+    <span class="marquee-item">Visual Storytelling</span>
+    <span class="marquee-item">Instagram Creatives</span>
+    <span class="marquee-item">Typography</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ ABOUT ═══════════════════════ -->
+<section class="section-pad" id="about">
+  <div class="container about-grid">
+    <div>
+      <div class="eyebrow" style="color: var(--pink); margin-bottom: 20px;">About Me</div>
+      <h2 class="about-headline">I turn brands into<br>visual stories.</h2>
+      <div class="about-bio">
+        <p>I'm Ishita — a creative living at the intersection of branding, social media, and design. From crafting full brand identities with colour systems and type hierarchies, to building scroll-stopping Instagram posts and product UIs, I bring strategy and aesthetics together in everything I make.</p>
+        <p>Based in India, I've worked with student organisations, tech startups, and creative studios — helping them look as good as they actually are.</p>
+      </div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">6+</div>
+        <div class="stat-label">Brands Built</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">100+</div>
+        <div class="stat-label">Creatives Designed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3+</div>
+        <div class="stat-label">Years Designing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SERVICES ═══════════════════════ -->
+<section class="services-section section-pad" id="services">
+  <div class="container">
+    <h2 class="services-title">What I Do</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <div class="service-name">Brand Identity</div>
+        <p class="service-desc">Logo design, colour palettes, typography systems, brand guidelines from scratch.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <div class="service-name">Social Media Design</div>
+        <p class="service-desc">Instagram posts, stories, event creatives, carousels — designed to perform.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💻</div>
+        <div class="service-name">UI/UX Design</div>
+        <p class="service-desc">Web app interfaces, product screens, wireframes with real design thinking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SELECTED WORK ═══════════════════════ -->
+<section class="section-pad" id="work">
+  <div class="container">
+    <h2 class="projects-title">Selected Work</h2>
+    <div class="projects-list" id="projectsList"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PROCESS ═══════════════════════ -->
+<section class="process-section section-pad" id="process">
+  <div class="container">
+    <h2 class="process-title">How I Work</h2>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Discover</div>
+        <p class="step-desc">Deep dive into brand, audience & goals. No designing before understanding.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Conceptualise</div>
+        <p class="step-desc">Moodboards, palette exploration, type pairing. Ideas before pixels.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Design</div>
+        <p class="step-desc">High-fidelity visuals built for impact, consistency, and real-world use.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-title">Deliver</div>
+        <p class="step-desc">Brand-ready assets, guidelines, and files — ready to publish or hand off.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CONTACT ═══════════════════════ -->
+<section class="contact-section section-pad" id="contact">
+  <div class="container contact-inner">
+    <div>
+      <div class="eyebrow" style="color: var(--cyan); margin-bottom: 20px;">Get in Touch</div>
+      <h2 class="contact-headline">Let's make<br>something<br>great.</h2>
+      <p class="contact-sub">Open to freelance projects, brand collaborations, and full-time roles.</p>
+      <div class="contact-links">
+        <a href="mailto:ichaudhary1085@gmail.com" class="contact-link-btn contact-email">
+          ✉ &nbsp; ichaudhary1085@gmail.com →
+        </a>
+        <a href="https://www.linkedin.com/in/ishita-chaudhary10/" target="_blank" rel="noopener noreferrer" class="contact-link-btn contact-linkedin">
+          in &nbsp; LinkedIn →
+        </a>
+      </div>
+    </div>
+    <div class="contact-visual">
+      <div class="contact-avatar">IC</div>
+      <div class="contact-role">Social Media Manager · Brand Designer · UI/UX Designer</div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">&copy; 2026 Ishita Chaudhary &middot; Designed with intention.</footer>
+
+<!-- ═══════════════════════ LIGHTBOX ═══════════════════════ -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close" onclick="closeLightbox()">✕</div>
+  <div class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">‹</div>
+  <img src="" alt="Lightbox Image" id="lightboxImg">
+  <div class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">›</div>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════════════
+// PROJECT DATA — ALL images from each folder
+// ════════════════════════════════════════════════════════════════
+const projects = [
+  {
+    title: "The Letters Studio",
+    tag: "Brand Identity",
+    accent: "#FFD600",
+    accentDark: "#e6c200",
+    textOnAccent: "#0A0A0A",
+    desc: "Full brand identity for a calligraphy and stationery brand — logo suite in multiple colourways, a warm earthy palette spanning cream to dark brown, and a custom typography system pairing Open Sans, Cyrillic Bodoni & Amsterdam One.",
+    link: "",
+    linkLabel: "",
+    folder: "letters by ishita",
+    images: [
+      "tls submark logo.jpg",
+      "Ishita Portfolio.png",
+      "Screenshot 2026-05-16 140749.png",
+      "Screenshot 2026-05-16 140808.png",
+      "Screenshot 2026-05-16 140836.png",
+      "Screenshot 2026-05-16 140923.png",
+      "Screenshot 2026-05-16 140955.png",
+      "Screenshot 2026-05-16 141021.png"
+    ]
+  },
+  {
+    title: "Buttercup Café",
+    tag: "Brand Identity",
+    accent: "#FF5C00",
+    accentDark: "#e05200",
+    textOnAccent: "#FFFFFF",
+    desc: "Coastal café branding — sun-soaked, breezy, and warmly inviting. Butter Yellow + Coastal Blue + Deep Teal palette with ceramic mug, paper bag, takeaway cup, and sticker mockups.",
+    link: "./buttercup-cafe-brand-guidelines.html",
+    linkLabel: "View Brand Guidelines →",
+    linkExternal: false,
+    folder: "buttercup-cafe-brand-guidelines",
+    images: [] // folder doesn't exist — will show styled fallback
+  },
+  {
+    title: "Bookmarked",
+    tag: "UI/UX Design",
+    accent: "#FF2D7A",
+    accentDark: "#e0286c",
+    textOnAccent: "#FFFFFF",
+    desc: "A book-tracking web app with explore, reading challenge, and personal bookshelf screens. Warm rose-toned UI with rich visual hierarchy and real book cover integrations.",
+    link: "https://www.figma.com/design/gmfKYEBdZlaSFqiYzLPvLr/Bookmarked?node-id=0-1&t=eWpk6EOdEn9mYaXU-1",
+    linkLabel: "View on Figma →",
+    linkExternal: true,
+    folder: "bookmarked",
+    images: [
+      "cover page.png",
+      "home page.png",
+      "explore page.png",
+      "reading challenge.png",
+      "my bookshelf.png",
+      "book preview.png",
+      "profile page.png"
+    ]
+  },
+  {
+    title: "Mindful Docs (DocuMind)",
+    tag: "Product Design",
+    accent: "#2D6CFF",
+    accentDark: "#2560e0",
+    textOnAccent: "#FFFFFF",
+    desc: "RAG-powered document intelligence platform — upload PDFs, chat with them, run content audits, track KPIs, and visualize knowledge graphs. Built with Gemini + pgvector. Dark, futuristic UI with magenta and cyan accents.",
+    link: "https://docu-mind-universe.lovable.app/workspace",
+    linkLabel: "View Live Project →",
+    linkExternal: true,
+    folder: "mindful docs - documind",
+    images: [
+      "home page.png",
+      "workspace.png",
+      "document audit.png",
+      "knowledge library.png",
+      "reseach timeliine.png"
+    ]
+  },
+  {
+    title: "Kalakriti Social Media",
+    tag: "Social Media Management",
+    accent: "#39FF14",
+    accentDark: "#2fe010",
+    textOnAccent: "#0A0A0A",
+    desc: "Social media management and creative design for Kalakriti — the Creative Society of VSET (VIPS-TC). Event announcement posters, wildcard round creatives, audition result reveals, and core team introduction posts.",
+    link: "https://www.instagram.com/kalakriti_vset/",
+    linkLabel: "View Instagram →",
+    linkExternal: true,
+    folder: "kalakriti social media posts",
+    images: [
+      "image.png",
+      "image (1).png",
+      "image (2).png",
+      "Screenshot 2026-06-20 150143.png",
+      "Screenshot 2026-06-20 150156.png",
+      "Screenshot 2026-06-20 150230.png",
+      "Screenshot 2026-06-20 150303.png",
+      "Screenshot 2026-06-20 150346.png"
+    ]
+  },
+  {
+    title: "College Newsletter Design",
+    tag: "Editorial Design · Print",
+    accent: "#00D4FF",
+    accentDark: "#00bce0",
+    textOnAccent: "#0A0A0A",
+    desc: "Editorial design for two college newsletter editions — 4th Semester and 5th Semester. Layout, typography, and visual hierarchy designed for print, covering campus events, student features, and academic highlights.",
+    link: "",
+    linkLabel: "",
+    isDual: true,
+    editions: [
+      {
+        name: "4th Sem Edition",
+        folder: "newsletter 4th sem",
+        images: ["1.png", "3.png", "4.png", "6.png", "12.png", "13.png", "16.png"]
+      },
+      {
+        name: "5th Sem Edition",
+        folder: "newsletter 5th sem",
+        images: ["1.png", "3.png", "5.png", "6.png", "7.png", "8.png", "10.png", "15.png"]
+      }
+    ]
+  }
+];
+
+// ════════════════════════════════════════════════════════════════
+// LIGHTBOX STATE
+// ════════════════════════════════════════════════════════════════
+let lightboxImages = [];
+let lightboxIndex = 0;
+
+function openLightbox(images, startIdx) {
+  lightboxImages = images;
+  lightboxIndex = startIdx;
+  updateLightboxImage();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function navigateLightbox(dir) {
+  lightboxIndex = (lightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
+  updateLightboxImage();
+}
+function updateLightboxImage() {
+  document.getElementById('lightboxImg').src = lightboxImages[lightboxIndex];
+  document.getElementById('lightboxCounter').textContent = `${lightboxIndex + 1} / ${lightboxImages.length}`;
+}
+
+// Close lightbox on background click
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+// Close on Escape, navigate with arrows
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') navigateLightbox(-1);
+  if (e.key === 'ArrowRight') navigateLightbox(1);
+});
+
+// ════════════════════════════════════════════════════════════════
+// RENDER HERO MOSAIC
+// ════════════════════════════════════════════════════════════════
+const mosaicConfig = [
+  { folder: "bookmarked", file: "cover page.png", classes: "mosaic-cell-tall", name: "Bookmarked", bg: "#FF2D7A", white: true },
+  { folder: "kalakriti social media posts", file: "image.png", classes: "", name: "Kalakriti", bg: "#39FF14", white: false },
+  { folder: "letters by ishita", file: "tls submark logo.jpg", classes: "", name: "Letters Studio", bg: "#FFD600", white: false },
+  { folder: "mindful docs - documind", file: "workspace.png", classes: "mosaic-cell-wide", name: "DocuMind", bg: "#2D6CFF", white: true }
+];
+
+const mosaic = document.getElementById('heroMosaic');
+mosaicConfig.forEach(cell => {
+  const div = document.createElement('div');
+  div.className = `mosaic-cell ${cell.classes}`;
+  div.style.background = cell.bg;
+  
+  const img = document.createElement('img');
+  img.alt = cell.name + ' preview';
+  img.src = `./${cell.folder}/${cell.file}`;
+  img.onload = function() { this.style.opacity = '1'; };
+  img.onerror = function() {
+    this.remove();
+    const fb = document.createElement('div');
+    fb.className = 'mosaic-fallback';
+    fb.style.color = cell.white ? '#fff' : '#0A0A0A';
+    fb.innerHTML = `${cell.name}<span>[ Preview ]</span>`;
+    div.appendChild(fb);
+  };
+  img.style.opacity = '0';
+  img.style.transition = 'opacity 0.5s';
+  div.appendChild(img);
+  mosaic.appendChild(div);
+});
+
+// ════════════════════════════════════════════════════════════════
+// RENDER PROJECTS
+// ════════════════════════════════════════════════════════════════
+const projectsList = document.getElementById('projectsList');
+
+projects.forEach((p, idx) => {
+  const card = document.createElement('div');
+  card.className = 'project-card';
+
+  // ─── Info Column ───
+  const info = document.createElement('div');
+  info.className = 'project-info';
+
+  const tag = document.createElement('span');
+  tag.className = 'project-tag';
+  tag.style.background = p.accent;
+  tag.style.color = p.textOnAccent;
+  tag.textContent = p.tag;
+  info.appendChild(tag);
+
+  const name = document.createElement('h3');
+  name.className = 'project-name';
+  name.textContent = p.title;
+  info.appendChild(name);
+
+  const desc = document.createElement('p');
+  desc.className = 'project-desc';
+  desc.textContent = p.desc;
+  info.appendChild(desc);
+
+  if (p.link && p.linkLabel) {
+    const link = document.createElement('a');
+    link.className = 'project-link';
+    link.href = p.link;
+    link.textContent = p.linkLabel;
+    link.style.background = p.accent;
+    link.style.color = p.textOnAccent;
+    if (p.linkExternal) {
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    }
+    info.appendChild(link);
+  }
+
+  // ─── Gallery Column ───
+  const galleryWrap = document.createElement('div');
+  galleryWrap.className = 'project-gallery-wrapper';
+  galleryWrap.style.background = `linear-gradient(135deg, ${p.accent}22, ${p.accent}11)`;
+
+  if (p.isDual) {
+    // Dual editions layout
+    const dual = document.createElement('div');
+    dual.className = 'dual-editions';
+    
+    p.editions.forEach(edition => {
+      const col = document.createElement('div');
+      col.className = 'edition-col';
+      
+      const heading = document.createElement('div');
+      heading.className = 'edition-heading';
+      heading.textContent = edition.name;
+      col.appendChild(heading);
+      
+      const loadedSrcs = [];
+      edition.images.forEach((file, i) => {
+        const src = `./${edition.folder}/${file}`;
+        const img = document.createElement('img');
+        img.className = 'edition-img';
+        img.alt = `${edition.name} — Page ${i + 1}`;
+        img.src = src;
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.4s';
+        img.onload = function() {
+          this.style.opacity = '1';
+          loadedSrcs.push(this.src);
+          this.onclick = () => {
+            const allSrcs = [...col.querySelectorAll('img.edition-img')].filter(i => i.complete && i.naturalWidth > 0).map(i => i.src);
+            openLightbox(allSrcs, allSrcs.indexOf(this.src));
+          };
+        };
+        img.onerror = function() { this.remove(); };
+        col.appendChild(img);
+      });
+      dual.appendChild(col);
+    });
+    
+    galleryWrap.appendChild(dual);
+  } else if (p.images.length > 0) {
+    // Standard horizontal gallery
+    const gallery = document.createElement('div');
+    gallery.className = 'project-gallery';
+    
+    const loadedSrcs = [];
+    p.images.forEach((file, i) => {
+      const src = `./${p.folder}/${file}`;
+      const img = document.createElement('img');
+      img.className = 'gallery-img';
+      img.alt = `${p.title} — ${file.replace(/\.[^.]+$/, '')}`;
+      img.src = src;
+      img.style.opacity = '0';
+      img.style.transition = 'opacity 0.4s';
+      img.onload = function() {
+        this.style.opacity = '1';
+        // Determine aspect ratio
+        const ratio = this.naturalWidth / this.naturalHeight;
+        if (ratio > 1.2) {
+          this.classList.add('landscape');
+        } else {
+          this.classList.add('portrait');
+        }
+        loadedSrcs.push(this.src);
+        this.onclick = () => {
+          const allLoaded = [...gallery.querySelectorAll('img.gallery-img')].filter(i => i.complete && i.naturalWidth > 0).map(i => i.src);
+          openLightbox(allLoaded, allLoaded.indexOf(this.src));
+        };
+      };
+      img.onerror = function() { this.remove(); };
+      gallery.appendChild(img);
+    });
+
+    galleryWrap.appendChild(gallery);
+
+    // Image count badge
+    const count = document.createElement('div');
+    count.className = 'gallery-count';
+    count.textContent = `${p.images.length} images — scroll →`;
+    galleryWrap.appendChild(count);
+
+    // Scroll hint
+    const hint = document.createElement('div');
+    hint.className = 'scroll-hint';
+    hint.textContent = '→';
+    galleryWrap.appendChild(hint);
+  } else {
+    // Fallback for empty/missing folders
+    const fallback = document.createElement('div');
+    fallback.className = 'project-fallback';
+    fallback.style.background = `linear-gradient(135deg, ${p.accent}, ${p.accentDark})`;
+    fallback.style.color = p.textOnAccent;
+    fallback.innerHTML = `
+      <div class="fallback-icon">✦</div>
+      <div class="fallback-name">${p.title}</div>
+      <div class="fallback-sub">View the brand guidelines page →</div>
+    `;
+    if (p.link) {
+      fallback.style.cursor = 'pointer';
+      fallback.onclick = () => window.open(p.link, '_self');
+    }
+    const galleryInner = document.createElement('div');
+    galleryInner.style.padding = '24px';
+    galleryInner.appendChild(fallback);
+    galleryWrap.appendChild(galleryInner);
+  }
+
+  card.appendChild(info);
+  card.appendChild(galleryWrap);
+  projectsList.appendChild(card);
+});
+
+// ════════════════════════════════════════════════════════════════
+// NAVBAR SCROLL + ACTIVE SECTION
+// ════════════════════════════════════════════════════════════════
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Active nav link tracking
+const navItems = document.querySelectorAll('.nav-links li');
+const sectionIds = ['work', 'about', 'services', 'process', 'contact'];
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navItems.forEach(item => {
+        item.classList.toggle('active', item.dataset.section === entry.target.id);
+      });
+    }
+  });
+}, { rootMargin: '-30% 0px -50% 0px' });
+
+sectionIds.forEach(id => {
+  const el = document.getElementById(id);
+  if (el) observer.observe(el);
+});
+</script>
+</body>
+</html>
